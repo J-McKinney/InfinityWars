@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Beat Thanos to the Infinity Stones</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://meyerweb.com/eric/tools/css/reset/reset.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link type="text/javascript" src="game.js">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Audiowide&display=swap" rel="stylesheet">
+</head>
+
+<body style="background-color:black;">
+
+    <header class="conatiner-fluid">
+        <h1>How To Become an Avenger...</h1>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div id="rule-col" class="col-md-6">
+                <h2 id="R">Rules: </h2>
+                <p>Thanos is waiting for you in the Nova Galaxy. Hurry and get there to confront him for the possession
+                    of the Infinity Stones.</p>
+                <p>There are 6 Infinity Stones below. By clicking on an Infinity Stone you will add a specific amount of
+                    points to
+                    your total score.</p>
+                <p>You win the game by matching your Total Infinity Points to Thanos' Points, you lose the game if your
+                    Total Infinity Points
+                    goes above Thanos' Points.</p>
+                <p>The value of each stone is hidden from you until you click on it.</p>
+                <p>Each time the game restarts, the Infinity Stones values will too.</p>
+                <p>Good Luck and help the Avengers save the Universe...</p>
+            </div>
+            <div id="img-col" class="col-md-6">
+                <img id="gauntlet" src="inf gaunt neon sketch.jpg" alt="neon infinity gauntlet" />
+                <img id="winner" src="iron man winner.jpg" alt="iron man gauntlet" />
+                <img id="loser" src="Infinity_War_Thanos_Gameover.jpg" alt="thanos gauntlet" />
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div id="num">Number To Match: </div>
+            </div>
+            <div class="col-md-2" id="matchNum">
+            </div>
+            <div class="col-md-6">
+                <div id="displayScore">Score-Board</div>
+                <div class="row" id="win">Wins:
+                    <div class="col-md-2" id="wins"></div>
+                </div>
+                <div class="row" id="lose">Losses:
+                    <div class="col-md-2" id="losses"></div>
+                </div>
+                <div class="row" id="guesses">Guesses Left: 
+                    <div class="col-md-2" id="guessesLeft"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row" id="infStns">
+            <div class="col-md-2">
+                <button id="spcStn" value="0"><img src="space stone.png"></button>
+            </div>
+            <div class="col-md-2">
+                <button id="mndStn" value="0"><img src="mind stone.png"></button>
+            </div>
+            <div class="col-md-2">
+                <button id="rltyStn" value="0"><img src="reality stone.png"></button>
+            </div>
+            <div class="col-md-2">
+                <button id="pwrStn" value="0"><img src="power stone.png"></button>
+            </div>
+            <div class="col-md-2">
+                <button id="timStn" value="0"><img src="time stone.png"></button>
+            </div>
+            <div class="col-md-2">
+                <button id="solStn" value="0"><img src="soul stone.png"></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4" id="urNum">
+                <div id="num">Your Number Is: </div>
+            </div>
+            <div class="col-md-2">
+                <div id="bldgNum"></div>
+
+            </div>
+        </div>
+        <div id="bar"><h1>Press The Space Bar At Anytime To Try Again.</h1></div>
+    </div>
+    <!-- <script>
+        nextGame();
+        displayScore();
+    </script> -->
+
+
+
+
+    <script src="game.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+<footer>
+
+</footer>
