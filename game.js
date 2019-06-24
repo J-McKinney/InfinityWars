@@ -77,7 +77,7 @@ $(document).ready(function () {
         if (l == true) {
             womp();
             reset();
-        } if (w !== true) {
+        } if (l !== true) {
             alert("Press The Space Bar To Try Again.")
         }
     }
