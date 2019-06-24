@@ -66,6 +66,7 @@ $(document).ready(function () {
             yay();
             reset();
         } if (w !== true) {
+            yay();
             alert("Press The Space Bar To Try Again.")
         }
     }
@@ -78,6 +79,7 @@ $(document).ready(function () {
             womp();
             reset();
         } if (l !== true) {
+            womp();
             alert("Press The Space Bar To Try Again.")
         }
     }
