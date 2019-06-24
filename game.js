@@ -9,12 +9,16 @@ $(document).ready(function () {
     var bldgNum = 0;
     var wins = 0;
     var losses = 0;
+    var guessesLeft;
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
     reset();
     function reset() {
         compNum = Math.floor(Math.random() * 182) + 19;
         console.log(compNum);
         $("#matchNum").html(compNum);
+        document.getElementById("gauntlet").style.cssText = "display: block";
+        document.getElementById("winner").style.cssText = "display: none";
+        document.getElementById("loser").style.cssText = "display: none";
         //computer picks a number between 19 and 120, that number is sent to id=matchNum
         /////////////////////////////////////////////////////////////////////////////////////////////////////
         let arr = [];
@@ -44,100 +48,202 @@ $(document).ready(function () {
         ///////////////////////////////////////////////////////////////////////////////////////////////////
         bldgNum = 0;
         $("#bldgNum").html(bldgNum);
+
+        guessesLeft = 15;
+        $("#guessesLeft").html(guessesLeft);
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////
     function win() {
-        wins++;
-        $("#wins").html(wins);
         document.getElementById("gauntlet").style.cssText = "display: none";
         document.getElementById("winner").style.cssText = "display: block";
         document.getElementById("loser").style.cssText = "display: none";
+        wins++;
+        $("#wins").html(wins);
+        var w = confirm("You Beat Thanos! You're Now An Official Avenger. Press OK, To Play Again.");
+        document.getElementById("gauntlet").style.cssText = "display: none";
+        document.getElementById("winner").style.cssText = "display: block";
+        document.getElementById("loser").style.cssText = "display: none";
+        if (w == true) {
+            document.getElementById("gauntlet").style.cssText = "display: none";
+            document.getElementById("winner").style.cssText = "display: block";
+            document.getElementById("loser").style.cssText = "display: none";
+        } else {
+            alert("If You Change Your Mind, Just Hit The Space Bar");
+        }
         reset();
     }
     function lose() {
-        losses++;
-        $("#losses").html(losses);
         document.getElementById("gauntlet").style.cssText = "display: none";
         document.getElementById("winner").style.cssText = "display: none";
         document.getElementById("loser").style.cssText = "display: block";
-        reset();
+        losses++;
+        $("#losses").html(losses);
+        var l = confirm("Sorry... You're Just Not Avenger Material. Press OK, To Play Again.");
+        document.getElementById("gauntlet").style.cssText = "display: none";
+        document.getElementById("winner").style.cssText = "display: none";
+        document.getElementById("loser").style.cssText = "display: block";
+        if (l == true) {
+            reset();
+        } else {
+            alert("Snap!!! Half Of The Universe Has Vanished!");
+            document.getElementById("gauntlet").style.cssText = "display: none";
+            document.getElementById("winner").style.cssText = "display: none";
+            document.getElementById("loser").style.cssText = "display: block";
+        }
     }
     ///////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////
-    $("#spcStn").on("click", function () {
+    $("#spcStn").on("mousedown", function () {
         bldgNum += spcStn;
+        guessesLeft--;
+        $("#guessesLeft").html(guessesLeft);
         $("#bldgNum").html(bldgNum);
         if (bldgNum == compNum) {
+            document.getElementById("gauntlet").style.cssText = "display: none";
+            document.getElementById("winner").style.cssText = "display: block";
+            document.getElementById("loser").style.cssText = "display: none";
             win();
         } else if (bldgNum > compNum) {
+            document.getElementById("gauntlet").style.cssText = "display: none";
+            document.getElementById("winner").style.cssText = "display: none";
+            document.getElementById("loser").style.cssText = "display: block";
+            lose();
+        } else if (guessesLeft <= 0) {
+            document.getElementById("gauntlet").style.cssText = "display: none";
+            document.getElementById("winner").style.cssText = "display: none";
+            document.getElementById("loser").style.cssText = "display: block";
             lose();
         }
     })
     //space stone has a value assigned from the while loop in the blank array, it will add to the bldgNum
     //////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    $("#mndStn").on("click", function () {
+    $("#mndStn").on("mousedown", function () {
         bldgNum += mndStn;
+        guessesLeft--;
+        $("#guessesLeft").html(guessesLeft);
         $("#bldgNum").html(bldgNum);
         if (bldgNum == compNum) {
+            document.getElementById("gauntlet").style.cssText = "display: none";
+            document.getElementById("winner").style.cssText = "display: block";
+            document.getElementById("loser").style.cssText = "display: none";
             win();
         } else if (bldgNum > compNum) {
+            document.getElementById("gauntlet").style.cssText = "display: none";
+            document.getElementById("winner").style.cssText = "display: none";
+            document.getElementById("loser").style.cssText = "display: block";
+            lose();
+        } else if (guessesLeft <= 0) {
+            document.getElementById("gauntlet").style.cssText = "display: none";
+            document.getElementById("winner").style.cssText = "display: none";
+            document.getElementById("loser").style.cssText = "display: block";
             lose();
         }
     })
     //mind stone has a value assigned from the while loop in the blank array, it will add to the bldgNum
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
-    $("#rltyStn").on("click", function () {
+    $("#rltyStn").on("mousedown", function () {
         bldgNum += rltyStn;
+        guessesLeft--;
+        $("#guessesLeft").html(guessesLeft);
         $("#bldgNum").html(bldgNum);
         if (bldgNum == compNum) {
+            document.getElementById("gauntlet").style.cssText = "display: none";
+            document.getElementById("winner").style.cssText = "display: block";
+            document.getElementById("loser").style.cssText = "display: none";
             win();
         } else if (bldgNum > compNum) {
+            document.getElementById("gauntlet").style.cssText = "display: none";
+            document.getElementById("winner").style.cssText = "display: none";
+            document.getElementById("loser").style.cssText = "display: block";
+            lose();
+        } else if (guessesLeft <= 0) {
+            document.getElementById("gauntlet").style.cssText = "display: none";
+            document.getElementById("winner").style.cssText = "display: none";
+            document.getElementById("loser").style.cssText = "display: block";
             lose();
         }
     })
     //reality stone has a value assigned from the while loop in the blank array, it will add to the bldgNum
     /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    $("#pwrStn").on("click", function () {
+    $("#pwrStn").on("mousedown", function () {
         bldgNum += pwrStn;
+        guessesLeft--;
+        $("#guessesLeft").html(guessesLeft);
         $("#bldgNum").html(bldgNum);
         if (bldgNum == compNum) {
+            document.getElementById("gauntlet").style.cssText = "display: none";
+            document.getElementById("winner").style.cssText = "display: block";
+            document.getElementById("loser").style.cssText = "display: none";
             win();
         } else if (bldgNum > compNum) {
+            document.getElementById("gauntlet").style.cssText = "display: none";
+            document.getElementById("winner").style.cssText = "display: none";
+            document.getElementById("loser").style.cssText = "display: block";
+            lose();
+        } else if (guessesLeft <= 0) {
+            document.getElementById("gauntlet").style.cssText = "display: none";
+            document.getElementById("winner").style.cssText = "display: none";
+            document.getElementById("loser").style.cssText = "display: block";
             lose();
         }
     })
     //power stone has a value assigned from the while loop in the blank array, it will add to the bldgNum
     //////////////////////////////////////////////////////////////////////////////////////////////////////
-    $("#timStn").on("click", function () {
+    $("#timStn").on("mousedown", function () {
         bldgNum += timStn;
+        guessesLeft--;
+        $("#guessesLeft").html(guessesLeft);
         $("#bldgNum").html(bldgNum);
         if (bldgNum == compNum) {
+            document.getElementById("gauntlet").style.cssText = "display: none";
+            document.getElementById("winner").style.cssText = "display: block";
+            document.getElementById("loser").style.cssText = "display: none";
             win();
         } else if (bldgNum > compNum) {
+            document.getElementById("gauntlet").style.cssText = "display: none";
+            document.getElementById("winner").style.cssText = "display: none";
+            document.getElementById("loser").style.cssText = "display: block";
+            lose();
+        } else if (guessesLeft <= 0) {
+            document.getElementById("gauntlet").style.cssText = "display: none";
+            document.getElementById("winner").style.cssText = "display: none";
+            document.getElementById("loser").style.cssText = "display: block";
             lose();
         }
     })
     //time stone has a value assigned from the while loop in the blank array, it will add to the bldgNum
     //////////////////////////////////////////////////////////////////////////////////////////////////////
-    $("#solStn").on("click", function () {
+    $("#solStn").on("mousedown", function () {
         bldgNum += solStn;
+        guessesLeft--;
+        $("#guessesLeft").html(guessesLeft);
         $("#bldgNum").html(bldgNum);
         if (bldgNum == compNum) {
+            document.getElementById("gauntlet").style.cssText = "display: none";
+            document.getElementById("winner").style.cssText = "display: block";
+            document.getElementById("loser").style.cssText = "display: none";
             win();
         } else if (bldgNum > compNum) {
+            document.getElementById("gauntlet").style.cssText = "display: none";
+            document.getElementById("winner").style.cssText = "display: none";
+            document.getElementById("loser").style.cssText = "display: block";
+            lose();
+        } else if (guessesLeft <= 0) {
+            document.getElementById("gauntlet").style.cssText = "display: none";
+            document.getElementById("winner").style.cssText = "display: none";
+            document.getElementById("loser").style.cssText = "display: block";
             lose();
         }
     })
     //soul stone has a value assigned from the while loop in the blank array, it will add to the bldgNum
     //////////////////////////////////////////////////////////////////////////////////////////////////////
-    document.body.onkeyup = function(e){
-        if(e.keyCode == 32){
+    document.body.onkeyup = function (e) {
+        if (e.keyCode == 32) {
             reset();
-            bldgNum = 0;
         }
     }
 })
