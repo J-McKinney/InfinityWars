@@ -84,7 +84,7 @@ $(document).ready(function () {
         }
     }
     //the win and lose functions, reset the game and link to the yay and womp function for images/////////////
-
+    
     $("#spcStn").on("mousedown", function () {
         bldgNum += spcStn;
         guessesLeft--;
